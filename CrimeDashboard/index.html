@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crime Data Dashboard</title>
+  
+  <!-- External Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- External Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1>Crime Data Dashboard</h1>
+  </header>
+  
+  <div class="container">
+    <aside class="sidebar">
+      <hr>
+<label for="modeToggle"><strong>Dark Mode:</strong></label><br>
+<input type="checkbox" id="modeToggle" onchange="toggleMode()" />
+
+      <h2>Filters</h2>
+
+      <label>Time Range:</label><br>
+      <select id="timeRangeSelect" onchange="refetchCrimeType()">
+        <option value="day">Past Day</option>
+        <option value="week">Past Week</option>
+        <option value="month" selected>Past Month</option>
+        <option value="year">Past Year</option>
+      </select><br><br>
+      
+
+      <label>Crime Type:</label><br>
+      <select id="crimeTypeSelect">
+        <option value="">All</option>
+        <option value="burglary">Burglary</option>
+        <option value="robbery">Robbery</option>
+        <option value="vehicle-crime">Vehicle Crime</option>
+        <option value="violent-crime">Violent Crime</option>
+        <option value="shoplifting">Shoplifting</option>
+        <option value="anti-social-behaviour">Anit-Social Behaviour</option>
+      </select><br><br>
+
+      <label>Location:</label><br>
+      <input type="text" id="locationInput" placeholder="Enter postcode or area" />
+      <button onclick="searchLocation()">Search</button>
+    </aside>
+
+    <main class="main-content">
+      <section class="cards">
+        <div class="card">
+          <h3>Total Crimes</h3>
+          <p id="totalCrimes">--</p>
+        </div>
+        <div class="card">
+          <h3>Top Area</h3>
+          <p id="topArea">--</p>
+        </div>
+        <div class="card">
+          <h3>Most Common</h3>
+          <p id="topCrime">--</p>
+        </div>
+      </section>
+
+      <section class="map-section">
+        <h2>Crime Map</h2>
+        <div id="map"></div>
+      </section>
+
+      <section class="chart-section">
+        <h2>Crime Trends</h2>
+        <canvas id="crimeChart"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <!-- External Script -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
