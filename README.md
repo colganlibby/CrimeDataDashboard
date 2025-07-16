@@ -18,7 +18,8 @@ A real-time dashboard that visualises UK crime data using the Police.uk API. Bui
 
 ## 📸 Screenshots
 
-*(Add a screenshot here of the dashboard once deployed)*
+![Dashboard Preview](dashbaord1.png)
+![Dashboard Preview](dashboard2.png)
 
 
 
